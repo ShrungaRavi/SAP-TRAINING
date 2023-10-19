@@ -1,0 +1,43 @@
+*&---------------------------------------------------------------------*
+*& Report ZSHRU_PRACTICE_IT
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZSHRU_PRACTICE_IT.
+
+TYPES : BEGIN OF ty_makt,
+        matnr TYPE makt-matnr,
+        spras TYPE makt-spras,
+        maktx TYPE makt-maktx,
+      END OF ty_makt.
+
+  DATa : it_makt TYPE TABLE OF ty_makt,
+         wa_makt LIKE LINE OF it_makt.
+
+wa_makt-matnr = '101'.
+wa_makt-spras = 'shrunga'.
+wa_makt-maktx = 'samsung'.
+APPEND wa_makt to it_makt.
+
+wa_makt-matnr = '102'.
+wa_makt-spras = 'Nihal'.
+wa_makt-maktx = 'one-plus'.
+APPEND wa_makt to it_makt.
+
+wa_makt-matnr = '103'.
+wa_makt-spras = 'Chirag'.
+wa_makt-maktx = 'Iphone'.
+APPEND wa_makt to it_makt.
+
+wa_makt-matnr = '104'.
+wa_makt-spras = 'Mahadev'.
+wa_makt-maktx = 'Nokia'.
+APPEND wa_makt to it_makt.
+
+wa_makt-matnr = '105'.
+wa_makt-spras = 'prajwal'.
+wa_makt-maktx = 'samsung'.
+APPEND wa_makt to it_makt.
+
+CLEAR wa_makt.
+WRITE wa_makt.

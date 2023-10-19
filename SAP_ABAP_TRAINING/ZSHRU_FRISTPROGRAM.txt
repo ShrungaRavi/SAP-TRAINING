@@ -1,0 +1,30 @@
+*&---------------------------------------------------------------------*
+*& Report ZSHRU_FRISTPROGRAM
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZSHRU_FRISTPROGRAM.
+
+PARAMETERS V_name TYPE c LENGTH 10.
+V_name = 'shrunga'.
+WRITE V_name.
+
+DATA s TYPE i.
+s = '7'.
+WRITE :/ s.
+
+DATA dob TYPE D.
+dob = '19990314'.
+WRITE :/ dob.
+
+DATA name TYPE N LENGTH 10.
+name = '1234567'.
+WRITE :/ name.
+
+DATA time TYPE T.
+time = '122015'.
+WRITE :/ time.
+
+DATA packed TYPE p LENGTH 10 DECIMALS 2.
+packed = '1234567890.78'.
+WRITE :/ packed.

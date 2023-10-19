@@ -1,0 +1,29 @@
+*&---------------------------------------------------------------------*
+*& Report ZSHRU_TASK3
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZSHRU_TASK3.
+
+PARAMETERS : p_amt TYPE p DECIMALS 2,
+             p_per TYPE p DECIMALS 2,
+             p_days TYPE i,
+             p_check AS CHECKBOX.
+DATA :   total_amount TYPE p DECIMALS 2,
+        SI_amount TYPE p DECIMALS 2.
+
+ IF p_check EQ 'X'.
+ SI_amount = p_amt * ( p_per / 100 ) * ( p_days ) .
+      totall_amount = p_amt + SI_amount.
+
+    ELSE.
+      final_amount = p_amt.
+     DO p_days TIMES.
+    SI_amount = final_amount * p_per / 100.
+    total_amount = final_amount + SI_amount.
+    ENDDO.
+      ENDIF.
+
+      WRITE :  'Initial Amount:',p_amt,/
+               'Total Days:',p_days,/
+               'Total Amount:',total_amount.

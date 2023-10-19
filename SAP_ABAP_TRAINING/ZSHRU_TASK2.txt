@@ -1,0 +1,28 @@
+*&---------------------------------------------------------------------*
+*& Report ZSHRU_TASK2
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZSHRU_TASK2.
+
+PARAMETERS p_d_code TYPE zshru_makt-d_code.
+
+TYPES : BEGIN OF ty_zshru_makt,
+        emp_id TYPE zshru_makt-emp_id,
+        emp_name TYPE zshru_makt-emp_name,
+        salary TYPE zshru_makt-salary,
+        ckey TYPE zshru_makt-ckey,
+        d_code type zshru_makt-d_code,
+      END OF ty_zshru_makt.
+
+ DATA : st_zshru_makt TYPE ty_zshru_makt.
+
+SELECT emp_id emp_name salary ckey d_code FROM zshru_makt INTO st_zshru_makt WHERE d_code EQ p_d_code.
+
+  WRITE :/ st_zshru_makt-emp_id,
+          st_zshru_makt-emp_name,
+          st_zshru_makt-salary,
+          st_zshru_makt-ckey,
+          st_zshru_makt-d_code.
+
+  ENDSELECT.

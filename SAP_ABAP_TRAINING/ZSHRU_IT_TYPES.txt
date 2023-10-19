@@ -1,0 +1,45 @@
+*&---------------------------------------------------------------------*
+*& Report ZSHRU_IT_TYPES
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZSHRU_IT_TYPES.
+
+TYPES : BEGIN OF ty_makt,
+        matnr TYPE makt-matnr,
+        spras TYPE makt-spras,
+        maktx TYPE makt-maktx,
+       END OF ty_makt.
+
+DATA : it_makt TYPE SORTED TABLE OF ty_makt WITH UNIQUE KEY matnr,
+       wa_makt LIKE LINE OF it_makt.
+
+wa_makt-matnr = '100'.
+wa_makt-spras = 'E'.
+wa_makt-maktx = 'pen'.
+INSERT wa_makt INTO TABLE it_makt.
+
+wa_makt-matnr = '200'.
+wa_makt-spras = 'E'.
+wa_makt-maktx = 'pencil'.
+INSERT wa_makt INTO TABLE it_makt.
+
+wa_makt-matnr = '400'.
+wa_makt-spras = 'E'.
+wa_makt-maktx = 'book'.
+INSERT  wa_makt INTO TABLE it_makt.
+
+wa_makt-matnr = '300'.
+wa_makt-spras = 'E'.
+wa_makt-maktx = 'pencil'.
+INSERT  wa_makt INTO TABLE it_makt.
+
+wa_makt-matnr = '600'.
+wa_makt-spras = 'E'.
+wa_makt-maktx = 'pwaencil'.
+INSERT  wa_makt INTO TABLE it_makt.
+
+*SORT it_makt by matnr spras.
+READ TABLE it_makt INTO wa_makt WITH  KEY matnr = '200' spras = 'E'.
+
+WRITE : / wa_makt.
